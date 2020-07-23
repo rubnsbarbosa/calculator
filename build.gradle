@@ -4,6 +4,8 @@ plugins {
 	id 'java'
 }
 
+apply plugin: "jacoco"
+
 group = 'com.rbns'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -19,6 +21,17 @@ dependencies {
 	}
 }
 
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.2
+			}
+		}
+	}
+}
+
 test {
 	useJUnitPlatform()
 }
+
